@@ -1,6 +1,6 @@
 const express = require('express')
 const app = express()
-const { logger } = require('./logger')
+const logger = require('./logger')
 const PORT = 4000
 
 app.use(logger)
@@ -9,10 +9,10 @@ app.get('/', (req, res) => {
     res.send("Hello World");
 })
 
-app.get('/products/:id', (req, res) => {
+app.get('/product/:id', (req, res) => {
     const { id } = req?.params
     console.log({ id })
-    res.send("Single Product Page - Product " + id);
+    res.send("Single Product Page");
 })
 
 app.get('/products', (req, res) => {
@@ -20,5 +20,5 @@ app.get('/products', (req, res) => {
 })
 
 app.listen(PORT, () => {
-    console.log("App is listening on PORT " + PORT)
+    console.log("App is listening on PORT" + PORT)
 })
